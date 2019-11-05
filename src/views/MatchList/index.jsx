@@ -19,10 +19,7 @@ const MatchList = () => {
           <h1>Listado de partidos</h1>
           <BasicBtn name='Crear Partido' click={() => setModalShow(true)}/>
         </Row>
-        <CreateMatch
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-        />
+        <CreateMatch show={modalShow} onHide={() => setModalShow(false)}/>
       </Container>
     </div>
   )

@@ -7,9 +7,18 @@
   border-bottom: 0 !important;
 }
 
+.modal-footer {
+  border-top: 0 !important;
+}
+
 .modal-input {
   margin-bottom: 0.5rem;
   width: 75%;
+  height: 40px;
+}
+
+label {
+  align-self: center;
 }
 
 .modal-label, .modal-label-date, .modal-input-time{
@@ -26,13 +35,35 @@
   width: 18%;
 }
 
+.modal-input-time, .modal-div-date > input {
+  border: 1px solid rgba(0,0,0,.2);
+  margin-bottom: 0.5rem;
+  
+}
+
 .modal-div-date > input {
   width: 70%;
+  height: 40px;
 }
 
 .modal-div-date > span {
   width: 10%;
   margin: 0 5%;
+  cursor: default;
+}
+
+.col-btn-create {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0 !important; 
+}
+
+.btn-create {
+  background-color: white !important;
+  border: solid 2px black !important;
+  border-radius: 0 !important;
+  padding: 0.2rem 6rem !important;
 }
 
 @media only screen and (max-width: 991px) {
