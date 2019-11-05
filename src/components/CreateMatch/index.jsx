@@ -20,7 +20,7 @@ class CreateMatch extends React.Component {
   createSelectOptions(data) {
     let options = [];
     for (let i = 0; i < data.length; i++) {
-      options.push(<option key={data[i].ID} value={data[i].nombre}>{data[i].nombre}</option>);   
+      options.push(<option key={data[i].ID} value={data[i]}>{data[i].nombre}</option>);   
     }
     return options;
   }
