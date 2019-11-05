@@ -1,0 +1,13 @@
+.modal-content {
+  border-radius: 0 !important;
+}
+
+.modal-header {
+  justify-content: center !important;
+  border-bottom: 0 !important;
+}
+
+.input-modal {
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
