@@ -25,7 +25,7 @@ class CreateMatch extends React.Component {
     }
     return items;
   }
-  
+
   render(){
   return(
   <Modal
@@ -42,20 +42,21 @@ class CreateMatch extends React.Component {
     <Modal.Body>
       <Container>
         <Row className="show-grid">
-          <Col md={4}>
-            <p>Nombre del partido</p>
-            <p>Tipo de partido</p>
-            <p>Recinto Deportivo</p>
-            <p>Fecha del evento</p>
-          </Col>
-          <Col md={8}>
-            <input className='input-modal' type="text"/>
-            <input className='input-modal' type="select" />
-            <select className='input-modal' type="select">
-              {this.createSelectItems(data)}
-            </select>
-            <input className='input-modal' type="text"  />
-          </Col>
+          <label for="match-name" className="modal-label">Nombre del partido:</label>
+          <input id="match-name" className="modal-input" type="text"/>
+          <label for="match-type"className="modal-label">Tipo de partido:</label>
+          <select id="match-type" className="modal-input" type="select" />
+          <label for="sport-venue" className="modal-label">Recinto deportivo:</label>
+          <select id="sport-venue" className="modal-input" type="select">
+            {this.createSelectItems(data)}
+          </select>
+          <label for="match-date" className="modal-label-date">Fecha del evento:</label>
+          <div className="modal-div-date">
+            <input id="match-date" type="date"/>
+            <span>📅</span>
+          </div>
+          <label for="match-time" className="modal-label-time">Hora del evento:</label>
+          <input id="match-time" className="modal-input-time" type="time"/>
         </Row>
       </Container>
     </Modal.Body>
