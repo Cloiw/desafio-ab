@@ -1,3 +1,7 @@
+.modal-container {
+  margin-top: 0 !important;
+}
+
 .modal-content {
   border-radius: 0 !important;
 }
@@ -64,6 +68,12 @@ label {
   border: solid 2px black !important;
   border-radius: 0 !important;
   padding: 0.2rem 6rem !important;
+}
+
+.modal-error {
+  height: 40px;
+  color: red;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 991px) {

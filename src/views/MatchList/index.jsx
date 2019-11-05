@@ -19,7 +19,6 @@ class MatchList extends React.Component {
 
   componentDidMount() {
     db.collection("matches").onSnapshot((querySnapshot) => {
-      console.log(querySnapshot.doc.data())
       this.setState({
         matches: querySnapshot.docs.map(doc => {
           return { data: doc.data() }
