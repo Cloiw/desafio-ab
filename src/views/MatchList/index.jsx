@@ -20,13 +20,13 @@ class MatchList extends React.Component {
   componentDidMount() {
     db.collection("matches").onSnapshot((querySnapshot) => {
       this.setState({
-        matches: querySnapshot.docs.map(doc => {
-          return { data: doc.data() }
-        })
-      })
+				matches: querySnapshot.docs.map(doc => {
+					return doc.data()
+				})
     })
     console.log(this.state.matches)
-  }
+  })
+}
 
   render() {
   
@@ -38,6 +38,11 @@ class MatchList extends React.Component {
             <BasicBtn name='Crear Partido' click={() => this.setState({ modalShow: true })}/>
           </Row>
           <CreateMatch show={this.state.modalShow} onHide={() => this.setState({ modalShow: false })}/>
+          <Row>
+            <Col>
+            {this.state.matches.map(e => <p>{e.match_name}</p>)}
+            </Col>
+          </Row>
         </Container>
       </div>
     )
