@@ -19,7 +19,7 @@ table.matches-table tbody td {
 }
 
 table.matches-table tr:nth-child(even) {
-  background: #CACACA;
+  background: rgba(202, 202, 202, 0.418);
 }
 
 table.matches-table thead {

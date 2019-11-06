@@ -94,9 +94,9 @@ class CreateMatch extends React.Component {
 
               <label htmlFor="match_type"className="modal-label">Tipo de partido:</label>
               <select onChange={this.handleChange} id="match_type" className="modal-input" type="select">
-                <option value="futbol">Fútbol</option>
-                <option value="futbolito">Fútbolito</option>
-                <option value="baby_futbol">Baby Fútbol</option>
+                <option value="Futbol">Fútbol</option>
+                <option value="Futbolito">Futbolito</option>
+                <option value="Baby Futbol">Baby Fútbol</option>
               </select>
 
               <label htmlFor="sport_venue" className="modal-label">Recinto deportivo:</label>

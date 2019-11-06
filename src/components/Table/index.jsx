@@ -4,10 +4,12 @@ import './Table.css'
 class Table extends React.Component {
   
   createTableData() {
-   return this.props.data.map((e, index) => {
+    return this.props.data.map((e, index) => {
       return  (
         <tr key={index}>
-          <td key={`${index}_date`}>{e.match_date}    {e.match_time}</td>
+          <td key={`${index}_date`}>
+            {`${e.match_date.split('-').join('/')}\xa0\xa0\xa0\xa0\xa0\xa0\xa0${e.match_time} hrs`}
+          </td>
           <td key={`${index}_name`}>{e.match_name}</td>
           <td key={`${index}_type`}>{e.match_type}</td>
           <td key={`${index}_btns`}><button>Ver</button></td>
