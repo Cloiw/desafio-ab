@@ -4,7 +4,9 @@ import {
   Row,
   Col,
 } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { db } from '../../data/firebase';
+import BasicBtn from '../../components/BasicBtn'
 import './MatchView.css';
 
 
@@ -54,10 +56,16 @@ class MatchView extends React.Component {
                     </Col>
                     <Col md={6} bsPrefix="col-map col">
                       {map === undefined ? null : 
-                      <iframe className="map-iframe" src={map} frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" />}
+                      <iframe title="map" className="map-iframe" src={map} frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" />}
                     </Col>
                   </Row>
               </div>
+              <Link to={"/"}>
+                <BasicBtn name="Volver" class={"btn-table"}/>
+              </Link>
+            </Col>
+            <Col md={5}>
+            <h4>Jugadores</h4>
             </Col>
           </Row>
         </Container>
