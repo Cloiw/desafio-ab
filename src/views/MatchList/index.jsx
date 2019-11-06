@@ -7,6 +7,7 @@ import {
 } from 'react-bootstrap';
 import { db } from '../../data/firebase';
 import CreateMatch from '../../components/CreateMatch'
+import Table from '../../components/Table'
 import BasicBtn from '../../components/BasicBtn'
 import './MatchList.css';
 
@@ -39,8 +40,8 @@ class MatchList extends React.Component {
           </Row>
           <CreateMatch show={this.state.modalShow} onHide={() => this.setState({ modalShow: false })}/>
           <Row>
-            <Col>
-            {this.state.matches.map(e => <p>{e.match_name}</p>)}
+            <Col bsPrefix="col col-table">
+              <Table data={this.state.matches}/>
             </Col>
           </Row>
         </Container>

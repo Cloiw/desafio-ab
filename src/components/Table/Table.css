@@ -1,0 +1,43 @@
+.matches-table{
+  width: 100%;
+}
+
+table.matches-table {
+  border: 3px solid #000000;
+  background-color: #F8F8F8;
+  width: 100%;
+  text-align: left;
+}
+
+table.matches-table td, table.matches-table th {
+  border: 1px solid #000000;
+  padding: 8px 6px;
+}
+
+table.matches-table tbody td {
+  font-size: 13px;
+}
+
+table.matches-table tr:nth-child(even) {
+  background: #CACACA;
+}
+
+table.matches-table thead {
+  background: #000000;
+}
+
+table.matches-table thead th {
+  font-size: 17px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: left;
+  border-left: 2px solid #484848;
+}
+
+table.matches-table thead th:first-child {
+  border-left: none;
+}
+
+table.matches-table tfoot td {
+  font-size: 16px;
+}
