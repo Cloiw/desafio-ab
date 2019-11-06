@@ -24,7 +24,6 @@ class MatchList extends React.Component {
 					return doc.data()
 				})
     })
-    console.log(this.state.matches)
   })
 }
 

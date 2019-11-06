@@ -121,9 +121,8 @@ class CreateMatch extends React.Component {
           <Container>
             <Row>
               <Col className="col-btn-create">
-              {this.state.loading ? <p>Creando partido . . .</p> :
-              <BasicBtn  class={"btn-create"} click={this.saveMatch} name="Crear" />
-              }
+                {this.state.loading ? <p>Creando partido . . .</p> :
+                <BasicBtn  class={"btn-create"} click={this.saveMatch} name="Crear" />}
               </Col>
             </Row>
           </Container>
