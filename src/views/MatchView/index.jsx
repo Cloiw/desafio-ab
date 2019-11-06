@@ -26,8 +26,10 @@ class MatchView extends React.Component {
   render() {
     const { match_name, match_type, match_date, match_time, sport_venue } = this.state.match_data;
     let cord = sport_venue["LATITUD, LONGITUD"];
-    let map = `https://www.google.com/maps/embed/v1/view?center=${cord}&zoom=15&key=AIzaSyCAAOmckpPvYeW6wxi5RU69Au7aofnfZc4`;
-    console.log(cord)
+    let addressString = `${sport_venue.calle} ${sport_venue.numero} ${sport_venue.comuna}`
+    let address = encodeURIComponent(addressString)
+    let map = `https://maps.google.com/maps?q=${address}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
+    console.log(addressString, address)
     return (
       <div>
         <Container>
@@ -51,7 +53,7 @@ class MatchView extends React.Component {
                   <p>Calle : {sport_venue.calle} {sport_venue.numero}</p>
                   <p>Comuna : {sport_venue.comuna}</p>
                   {cord === undefined ? null : 
-                  <iframe src={map} />}
+                  <iframe className="map-iframe" src={map} frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" />}
                 </div>
               </div>
 
