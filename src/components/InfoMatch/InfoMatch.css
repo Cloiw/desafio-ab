@@ -1,0 +1,24 @@
+.row-padding-top, .row-padding-y{
+  border: solid black 2px;
+  padding-top: 3%;
+}
+
+.row-padding-y {
+  margin: 0 !important;
+  padding: 15px 0;
+}
+
+.map-iframe{
+  width: 87%;
+  height: 100%;
+}
+
+.col-map {
+  display: flex;
+  justify-content: center;
+  padding: 0 !important;
+}
+
+.div-match > p{
+  margin-left: 10px;
+}

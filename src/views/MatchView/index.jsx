@@ -10,6 +10,7 @@ import BasicBtn from '../../components/BasicBtn'
 import './MatchView.css';
 import PlayersTable from '../../components/PlayersTable/indexj';
 import InvitePlayers from '../../components/InvitePlayers';
+import InfoMatch from '../../components/InfoMatch';
 
 
 class MatchView extends React.Component {
@@ -27,6 +28,7 @@ class MatchView extends React.Component {
   }
   
   render() {
+    console.log(this)
     const { match_name, match_type, match_id, match_date, match_time, sport_venue, match_players, players } = this.state.match_data;
     let addressString = `${sport_venue.calle} ${sport_venue.numero} ${sport_venue.comuna}`;
     let address = encodeURIComponent(addressString);
@@ -40,34 +42,31 @@ class MatchView extends React.Component {
           </Row>
           <Row>
             <Col md={7} bsPrefix="col-info col">
-              <div>
-                <h4>Información del partido</h4>
-                <div className="div-match">
-                  <p>Fecha y hora : {`${match_date.split('-').join('/')}\xa0\xa0\xa0${match_time} hrs`}</p>
-                  <p>Tipo de partido : {match_type}</p>
-                </div>
-              </div>
+              <InfoMatch 
+                title="Información del partido"
+                date={match_date}
+                time={match_time}
+                type={match_type}
+                margin_top_bot={false}
+                 />
               <div className="div-container-sport">
-                <h4>Información del recinto deportivo</h4>
-                  <Row bsPrefix="row row-address">
-                    <Col md={6}>
-                      <p>Nombre del recinto : {sport_venue.nombre}</p>
-                      <p>Telefono : {sport_venue.TELÉFONO}</p>
-                      <p>Calle : {sport_venue.calle} {sport_venue.numero}</p>
-                      <p>Comuna : {sport_venue.comuna}</p>
-                    </Col>
-                    <Col md={6} bsPrefix="col-map col">
-                      {map === undefined ? null : 
-                      <iframe title="map" className="map-iframe" src={map} frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" />}
-                    </Col>
-                  </Row>
+                <InfoMatch 
+                  title="Información del recinto deportivo"
+                  venue_name={sport_venue.nombre}
+                  venue_phone={sport_venue.TELÉFONO}
+                  venue_street={sport_venue.calle}
+                  venue_number={sport_venue.numero}
+                  venue_commune={sport_venue.comuna}
+                  map_url={map}
+                  margin_top_bot={true}
+                  />
               </div>
             </Col>
             <Col md={5}>
               <h4>Jugadores</h4>
               <div className="div-match-invite">
                 <h6>{`Faltan ${match_players - players.length} de ${match_players} jugadores`}</h6>
-                <InvitePlayers id={match_id} />
+                <InvitePlayers players={players} id={match_id} />
               </div>
               <div>
                 <PlayersTable players={players} total={match_players} />

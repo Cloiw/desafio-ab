@@ -6,24 +6,10 @@
   margin-bottom: 15px;
 }
 
-.div-match, .row-address, .div-match-invite{
+.div-match-invite{
   border: solid black 2px;
-  padding-top: 3%;
-}
-
-.row-address, .div-match-invite{
   margin: 0 !important;
   padding: 15px 0;
-}
-.map-iframe{
-  width: 87%;
-  height: 100%;
-}
-
-.col-map {
-  display: flex;
-  justify-content: center;
-  padding: 0 !important;
 }
 
 .div-container-sport {
@@ -31,6 +17,6 @@
   margin-bottom: 10%;
 }
 
-.div-match > p, .div-match-invite > h6{
+.div-match-invite > h6{
   margin-left: 10px;
 }

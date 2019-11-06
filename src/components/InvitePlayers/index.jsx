@@ -1,14 +1,38 @@
 import React from 'react';
 import BasicBtn from '../BasicBtn';
-import './InvitePlayers.css'
+import { db } from '../../data/firebase';
+import './InvitePlayers.css';
 
-const InvitePlayers = (props) => {
+class InvitePlayers extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = { invite_email: ""};
+  }
+  
+  invitePlayer(id, players, email) {
+    const newPlayer = [...players]
+    newPlayer.push({email: email, status: 0})
+    console.log(newPlayer)
+    db.collection("matches").doc(id).update({
+      players : newPlayer
+    })
+  }
+
+  handleChange = (event) => { 
+    this.setState({ [event.target.id]: event.target.value });
+  }
+  
+  render(){
   return(
   <div className="container-invite-players">
-    <input placeholder="correo@gmail.com" />
-    <BasicBtn class="invite" name="Invitar Jugadores" />
+    <input id="invite_email" onChange={this.handleChange} placeholder="correo@gmail.com" />
+    <BasicBtn 
+      class="invite" 
+      click={() => this.invitePlayer(this.props.id, this.props.players, this.state.invite_email)} 
+      name="Invitar Jugador" />
   </div>
   )
+  }
 }
 
 export default InvitePlayers
