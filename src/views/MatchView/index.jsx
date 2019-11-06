@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { db } from '../../data/firebase';
 import BasicBtn from '../../components/BasicBtn'
 import './MatchView.css';
+import PlayersTable from '../../components/PlayersTable/indexj';
 
 
 class MatchView extends React.Component {
@@ -60,14 +61,17 @@ class MatchView extends React.Component {
                     </Col>
                   </Row>
               </div>
-              <Link to={"/"}>
-                <BasicBtn name="Volver" class={"btn-table"}/>
-              </Link>
             </Col>
             <Col md={5}>
               <h4>Jugadores</h4>
               <h4>{`Faltan ${match_players - players.length} de ${match_players} jugadores`}</h4>
+              <PlayersTable players={players} total={match_players} />
             </Col>
+          </Row>
+          <Row>
+            <Link to={"/"}>
+              <BasicBtn name="Volver" class={"btn-table"}/>
+            </Link>
           </Row>
         </Container>
       </div>
