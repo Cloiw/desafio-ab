@@ -1,0 +1,21 @@
+.col-info {
+  padding: 0 !important;
+}
+
+.row-match-name {
+  margin-bottom: 3%;
+}
+
+.div-match {
+  border: solid black 2px;
+  padding-top: 3%;
+}
+
+.div-container-sport {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.div-match > p {
+  margin-left: 10px;
+}
