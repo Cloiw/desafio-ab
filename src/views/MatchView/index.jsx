@@ -19,17 +19,15 @@ class MatchView extends React.Component {
       this.setState({
 				match_data: querySnapshot.data()
       })
-      console.log(this.state.match_data)
     })
   }
   
   render() {
     const { match_name, match_type, match_date, match_time, sport_venue } = this.state.match_data;
-    let cord = sport_venue["LATITUD, LONGITUD"];
-    let addressString = `${sport_venue.calle} ${sport_venue.numero} ${sport_venue.comuna}`
-    let address = encodeURIComponent(addressString)
+    let addressString = `${sport_venue.calle} ${sport_venue.numero} ${sport_venue.comuna}`;
+    let address = encodeURIComponent(addressString);
     let map = `https://maps.google.com/maps?q=${address}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
-    console.log(addressString, address)
+
     return (
       <div>
         <Container>
@@ -37,7 +35,7 @@ class MatchView extends React.Component {
             <h1>{match_name}</h1>
           </Row>
           <Row>
-            <Col md={6} bsPrefix="col-info col">
+            <Col md={7} bsPrefix="col-info col">
               <div>
                 <h4>Información del partido</h4>
                 <div className="div-match">
@@ -47,16 +45,19 @@ class MatchView extends React.Component {
               </div>
               <div className="div-container-sport">
                 <h4>Información del recinto deportivo</h4>
-                <div className="div-match">
-                  <p>Nombre del recinto : {sport_venue.nombre}</p>
-                  <p>Telefono : {sport_venue.TELÉFONO}</p>
-                  <p>Calle : {sport_venue.calle} {sport_venue.numero}</p>
-                  <p>Comuna : {sport_venue.comuna}</p>
-                  {cord === undefined ? null : 
-                  <iframe className="map-iframe" src={map} frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" />}
-                </div>
+                  <Row bsPrefix="row row-address">
+                    <Col md={6}>
+                      <p>Nombre del recinto : {sport_venue.nombre}</p>
+                      <p>Telefono : {sport_venue.TELÉFONO}</p>
+                      <p>Calle : {sport_venue.calle} {sport_venue.numero}</p>
+                      <p>Comuna : {sport_venue.comuna}</p>
+                    </Col>
+                    <Col md={6} bsPrefix="col-map col">
+                      {map === undefined ? null : 
+                      <iframe className="map-iframe" src={map} frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" />}
+                    </Col>
+                  </Row>
               </div>
-
             </Col>
           </Row>
         </Container>

@@ -6,9 +6,24 @@
   margin-bottom: 3%;
 }
 
-.div-match {
+.div-match, .row-address{
   border: solid black 2px;
   padding-top: 3%;
+}
+
+.row-address {
+  margin: 0 !important;
+  padding: 3% 0%;
+}
+.map-iframe{
+  width: 90%;
+  height: 100%;
+}
+
+.col-map {
+  display: flex;
+  justify-content: center;
+  padding: 0 !important;
 }
 
 .div-container-sport {
