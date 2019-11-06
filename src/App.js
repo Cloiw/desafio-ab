@@ -2,8 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import MatchList from './views/MatchList';
 import MatchView from './views/MatchView';
-import './App.css'
-
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 

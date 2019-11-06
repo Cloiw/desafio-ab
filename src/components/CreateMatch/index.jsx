@@ -2,7 +2,6 @@ import React from 'react';
 import { db } from '../../data/firebase';
 import {
   Modal,
-  Button,
   Container,
   Row,
   Col,

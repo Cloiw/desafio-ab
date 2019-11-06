@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import {
   Container,
   Row,
@@ -51,8 +50,3 @@ class MatchList extends React.Component {
 }
 
 export default MatchList;
- 
-/* {Object.keys(data).map((name) => (
-    <Link key={name} to={`/match/${name}`}>
-      <BasicBtn name={'Ver'} />
-    </Link> */
