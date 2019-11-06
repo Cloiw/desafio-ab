@@ -41,3 +41,8 @@ table.matches-table thead th:first-child {
 table.matches-table tfoot td {
   font-size: 16px;
 }
+
+.td-btn {
+  display: flex;
+  justify-content: space-around;
+}

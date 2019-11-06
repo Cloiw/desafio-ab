@@ -1,5 +1,6 @@
 import React from 'react';
 import './Table.css'
+import BasicBtn from '../BasicBtn'
 
 class Table extends React.Component {
   
@@ -12,7 +13,10 @@ class Table extends React.Component {
           </td>
           <td key={`${index}_name`}>{e.match_name}</td>
           <td key={`${index}_type`}>{e.match_type}</td>
-          <td key={`${index}_btns`}><button>Ver</button></td>
+          <td className="td-btn" key={`${index}_btns`}>
+            <BasicBtn name="Ver" class={"btn-table"} />
+            <BasicBtn name="Eliminar" class={"btn-table"}/>
+            </td>
         </tr>
       )
     })

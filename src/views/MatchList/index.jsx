@@ -36,7 +36,7 @@ class MatchList extends React.Component {
         <Container>
           <Row bsPrefix="row row-title" md={3}>
             <h1>Listado de partidos</h1>
-            <BasicBtn name='Crear Partido' click={() => this.setState({ modalShow: true })}/>
+            <BasicBtn class="btn-create" name='Crear Partido' click={() => this.setState({ modalShow: true })}/>
           </Row>
           <CreateMatch show={this.state.modalShow} onHide={() => this.setState({ modalShow: false })}/>
           <Row>

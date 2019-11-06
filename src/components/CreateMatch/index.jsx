@@ -9,6 +9,7 @@ import {
 } from 'react-bootstrap';
 import './CreateMatch.css';
 import data from '../../data/data.json'
+import BasicBtn from '../BasicBtn';
 
 
 class CreateMatch extends React.Component {
@@ -120,7 +121,7 @@ class CreateMatch extends React.Component {
             <Row>
               <Col className="col-btn-create">
               {this.state.loading ? <p>Creando partido . . .</p> :
-                <Button variant="create" onClick={() => this.saveMatch()}>Crear</Button>
+              <BasicBtn  class={"btn-create"} click={this.saveMatch} name="Crear" />
               }
               </Col>
             </Row>
