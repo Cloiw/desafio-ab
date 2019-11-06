@@ -9,6 +9,7 @@ import { db } from '../../data/firebase';
 import BasicBtn from '../../components/BasicBtn'
 import './MatchView.css';
 import PlayersTable from '../../components/PlayersTable/indexj';
+import InvitePlayers from '../../components/InvitePlayers';
 
 
 class MatchView extends React.Component {
@@ -26,7 +27,7 @@ class MatchView extends React.Component {
   }
   
   render() {
-    const { match_name, match_type, match_date, match_time, sport_venue, match_players, players } = this.state.match_data;
+    const { match_name, match_type, match_id, match_date, match_time, sport_venue, match_players, players } = this.state.match_data;
     let addressString = `${sport_venue.calle} ${sport_venue.numero} ${sport_venue.comuna}`;
     let address = encodeURIComponent(addressString);
     let map = `https://maps.google.com/maps?q=${address}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
@@ -64,8 +65,13 @@ class MatchView extends React.Component {
             </Col>
             <Col md={5}>
               <h4>Jugadores</h4>
-              <h4>{`Faltan ${match_players - players.length} de ${match_players} jugadores`}</h4>
-              <PlayersTable players={players} total={match_players} />
+              <div className="div-match-invite">
+                <h6>{`Faltan ${match_players - players.length} de ${match_players} jugadores`}</h6>
+                <InvitePlayers id={match_id} />
+              </div>
+              <div>
+                <PlayersTable players={players} total={match_players} />
+              </div>
             </Col>
           </Row>
           <Row>

@@ -3,17 +3,17 @@
 }
 
 .row-match-name {
-  margin-bottom: 3%;
+  margin-bottom: 15px;
 }
 
-.div-match, .row-address{
+.div-match, .row-address, .div-match-invite{
   border: solid black 2px;
   padding-top: 3%;
 }
 
-.row-address {
+.row-address, .div-match-invite{
   margin: 0 !important;
-  padding: 3% 0%;
+  padding: 15px 0;
 }
 .map-iframe{
   width: 87%;
@@ -31,6 +31,6 @@
   margin-bottom: 10%;
 }
 
-.div-match > p {
+.div-match > p, .div-match-invite > h6{
   margin-left: 10px;
 }

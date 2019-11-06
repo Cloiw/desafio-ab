@@ -1,0 +1,9 @@
+.container-invite-players {
+  margin: 0 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.invite {
+  margin-left: 10px;
+}
