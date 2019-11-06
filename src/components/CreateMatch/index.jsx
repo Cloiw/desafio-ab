@@ -39,15 +39,30 @@ class CreateMatch extends React.Component {
       loading:true,
       errorMsg:false
     })
+
+    let match_players = "";
+
+    if(this.state.match_type === "Futbol") {
+      match_players = 22
+    }
+    if(this.state.match_type === "Futbolito") {
+      match_players = 14
+    }
+    if(this.state.match_type === "Baby Futbol") {
+      match_players = 10
+    }
+
     const idMatch = this.state.match_name + Date.now();
     const data =
     {
       match_id: idMatch,
+      match_players: match_players,
       match_name: this.state.match_name,
       match_type: this.state.match_type,
       sport_venue: JSON.parse(this.state.sport_venue),
       match_date: this.state.match_date,
-      match_time: this.state.match_time 
+      match_time: this.state.match_time,
+      players: []
     }
     db.collection('matches').doc(idMatch).set(data)
     .then(() => {

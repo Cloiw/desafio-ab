@@ -13,7 +13,7 @@ import './MatchView.css';
 class MatchView extends React.Component {
   constructor(props){
     super(props);
-    this.state = { match_data: {match_name: "", match_date: "", match_time: "", sport_venue: { nombre: ""}}}
+    this.state = { match_data: {match_name: "", match_players: 0, match_date: "", match_time: "", sport_venue: { nombre: ""}, players: []}}
   }
 
   componentDidMount() {
@@ -25,7 +25,7 @@ class MatchView extends React.Component {
   }
   
   render() {
-    const { match_name, match_type, match_date, match_time, sport_venue } = this.state.match_data;
+    const { match_name, match_type, match_date, match_time, sport_venue, match_players, players } = this.state.match_data;
     let addressString = `${sport_venue.calle} ${sport_venue.numero} ${sport_venue.comuna}`;
     let address = encodeURIComponent(addressString);
     let map = `https://maps.google.com/maps?q=${address}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
@@ -65,7 +65,8 @@ class MatchView extends React.Component {
               </Link>
             </Col>
             <Col md={5}>
-            <h4>Jugadores</h4>
+              <h4>Jugadores</h4>
+              <h4>{`Faltan ${match_players - players.length} de ${match_players} jugadores`}</h4>
             </Col>
           </Row>
         </Container>

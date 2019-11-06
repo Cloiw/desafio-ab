@@ -2,3 +2,8 @@
   background-color: white;
   border: solid 2px black;
 }
+
+.btn-basic:hover {
+  background-color: black;
+  color: white;
+}
