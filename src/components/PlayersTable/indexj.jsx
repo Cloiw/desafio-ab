@@ -10,7 +10,7 @@ class PlayersTable extends React.Component {
       return  (
         <tr key={index}>
           <td>{e.email}</td>
-          <td>{e.status}</td>
+          <td>{e.status === 0 ? "PENDIENTE" : e.status === 1 ? "ACEPTADO" : "RECHAZADO"}</td>
           <td>
             <div className="td-btn">
               <BasicBtn name="Eliminar" class={"btn-table"}/>
