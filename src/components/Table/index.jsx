@@ -28,12 +28,14 @@ class Table extends React.Component {
           </td>
           <td key={`${index}_name`}>{e.match_name}</td>
           <td key={`${index}_type`}>{e.match_type}</td>
-          <td className="td-btn" key={`${index}_btns`}>
-            <Link to={`/match/${e.match_id}`}>
-              <BasicBtn name="Ver" class={"btn-table"}/>
-            </Link>
-            <BasicBtn name="Eliminar" click={() => this.deleteMatch(e.match_id)} class={"btn-table"}/>
-            </td>
+          <td key={`${index}_btns`}>
+            <div className="td-btn">
+              <Link to={`/match/${e.match_id}`}>
+                <BasicBtn name="Ver" class={"btn-table"}/>
+              </Link>
+              <BasicBtn name="Eliminar" click={() => this.deleteMatch(e.match_id)} class={"btn-table"}/>
+            </div>
+          </td>
         </tr>
       )
     })
