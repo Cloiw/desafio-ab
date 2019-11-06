@@ -93,14 +93,16 @@ class CreateMatch extends React.Component {
               <input onChange={this.handleChange} id="match_name" className="modal-input" type="text"/>
 
               <label htmlFor="match_type"className="modal-label">Tipo de partido:</label>
-              <select onChange={this.handleChange} id="match_type" className="modal-input" type="select">
+              <select defaultValue={""} onChange={this.handleChange} id="match_type" className="modal-input" type="select">
+                <option disabled value="">Selecciona el tipo de partido</option>
                 <option value="Futbol">Fútbol</option>
                 <option value="Futbolito">Futbolito</option>
                 <option value="Baby Futbol">Baby Fútbol</option>
               </select>
 
               <label htmlFor="sport_venue" className="modal-label">Recinto deportivo:</label>
-              <select onChange={this.handleChange} id="sport_venue" className="modal-input" type="select">
+              <select defaultValue={""} onChange={this.handleChange} id="sport_venue" className="modal-input" type="select">
+                <option disabled value="">Selecciona un recinto</option>
                 {this.createSelectOptions(data[Object.keys(data)])}
               </select>
 
