@@ -1,5 +1,4 @@
 import React from 'react';
-import { db } from '../../data/firebase';
 import BasicBtn from '../BasicBtn';
 
 
@@ -26,11 +25,10 @@ class PlayersTable extends React.Component {
       let cells= []
       for(let i = this.props.players.length; i < this.props.total; i++){
         cells.push(
-        <tr>
+        <tr key={`${i}_pending`}>
           <td>PENDIENTE</td>
           <td>PENDIENTE</td>
-          <td>
-          </td>
+          <td></td>
         </tr>
         )
       }
@@ -39,7 +37,6 @@ class PlayersTable extends React.Component {
   }
 
   render(){
-    console.log(this.props)
     return(
       <div>
         <table className="matches-table">

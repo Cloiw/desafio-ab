@@ -12,7 +12,6 @@ class InvitePlayers extends React.Component {
   invitePlayer(id, players, email) {
     const newPlayer = [...players]
     newPlayer.push({email: email, status: 0})
-    console.log(newPlayer)
     db.collection("matches").doc(id).update({
       players : newPlayer
     })
@@ -29,7 +28,8 @@ class InvitePlayers extends React.Component {
     <BasicBtn 
       class="invite" 
       click={() => this.invitePlayer(this.props.id, this.props.players, this.state.invite_email)} 
-      name="Invitar Jugador" />
+      name="Invitar Jugador"
+    />
   </div>
   )
   }

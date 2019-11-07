@@ -23,12 +23,12 @@ class Table extends React.Component {
     return this.props.data.map((e, index) => {
       return  (
         <tr key={index}>
-          <td key={`${index}_date`}>
+          <td>
             {`${e.match_date.split('-').join('/')}\xa0\xa0\xa0\xa0\xa0\xa0\xa0${e.match_time} hrs`}
           </td>
-          <td key={`${index}_name`}>{e.match_name}</td>
-          <td key={`${index}_type`}>{e.match_type}</td>
-          <td key={`${index}_btns`}>
+          <td>{e.match_name}</td>
+          <td>{e.match_type}</td>
+          <td>
             <div className="td-btn">
               <Link to={`/match/${e.match_id}`}>
                 <BasicBtn name="Ver" class={"btn-table"}/>

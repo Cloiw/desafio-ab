@@ -28,7 +28,6 @@ class MatchView extends React.Component {
   }
   
   render() {
-    console.log(this)
     const { match_name, match_type, match_id, match_date, match_time, sport_venue, match_players, players } = this.state.match_data;
     let addressString = `${sport_venue.calle} ${sport_venue.numero} ${sport_venue.comuna}`;
     let address = encodeURIComponent(addressString);
@@ -48,7 +47,7 @@ class MatchView extends React.Component {
                 time={match_time}
                 type={match_type}
                 margin_top_bot={false}
-                 />
+              />
               <div className="div-container-sport">
                 <InfoMatch 
                   title="Información del recinto deportivo"
@@ -59,7 +58,7 @@ class MatchView extends React.Component {
                   venue_commune={sport_venue.comuna}
                   map_url={map}
                   margin_top_bot={true}
-                  />
+                />
               </div>
             </Col>
             <Col md={5}>

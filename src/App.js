@@ -19,9 +19,6 @@ const App = () => (
         path="/match/:matchId"
         render={(props) => <MatchView {...props} />}
       />
-      {/* <Route
-        component={NoMatchPage}
-      /> */}
     </Switch>
   </Router>
 );
