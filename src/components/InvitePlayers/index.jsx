@@ -14,6 +14,9 @@ class InvitePlayers extends React.Component {
   }
 
   invitePlayer(id, players, email) {
+    if (email === '') {
+      return;
+    }
     const newPlayer = [...players];
     newPlayer.push({ email, status: 0 });
     db.collection('matches').doc(id).update({
