@@ -5,44 +5,48 @@ import BasicBtn from '../BasicBtn';
 import { db } from '../../data/firebase';
 
 class Table extends React.Component {
-  
+  constructor(props) {
+    super(props);
+    this.deleteMatch = this.deleteMatch.bind(this);
+  }
+
   deleteMatch(id) {
-    db.collection("matches").doc(id).delete()
-    .then(res => {
-      console.log("Borrado")
-    }).catch(error => {
-      console.error("Error removing document: ", error);
-    });
+    db.collection('matches').doc(id).delete()
+      .then((res) => {
+        console.log('Deleted', res);
+      })
+      .catch((error) => {
+        console.error('Error: ', error);
+      });
   }
 
   createTableData() {
-    if (this.props.data.length === 0){
-      return
+    const { data } = this.props;
+    if (data.length === 0) {
+      return [];
     }
-    
-    return this.props.data.map((e, index) => {
-      return  (
-        <tr key={index}>
-          <td>
-            {`${e.match_date.split('-').join('/')}\xa0\xa0\xa0\xa0\xa0\xa0\xa0${e.match_time} hrs`}
-          </td>
-          <td>{e.match_name}</td>
-          <td>{e.match_type}</td>
-          <td>
-            <div className="td-btn">
-              <Link to={`/match/${e.match_id}`}>
-                <BasicBtn name="Ver" class={"btn-table"}/>
-              </Link>
-              <BasicBtn name="Eliminar" click={() => this.deleteMatch(e.match_id)} class={"btn-table"}/>
-            </div>
-          </td>
-        </tr>
-      )
-    })
+
+    return data.map((e, index) => (
+      <tr key={index}>
+        <td>
+          {`${e.match_date.split('-').join('/')}\xa0\xa0\xa0\xa0\xa0\xa0\xa0${e.match_time} hrs`}
+        </td>
+        <td>{e.match_name}</td>
+        <td>{e.match_type}</td>
+        <td>
+          <div className="td-btn">
+            <Link to={`/match/${e.match_id}`}>
+              <BasicBtn name="Ver" addClass="btn-table" />
+            </Link>
+            <BasicBtn name="Eliminar" click={() => this.deleteMatch(e.match_id)} addClass="btn-table" />
+          </div>
+        </td>
+      </tr>
+    ));
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <div>
         <table className="matches-table">
           <thead>
@@ -58,7 +62,7 @@ class Table extends React.Component {
           </tbody>
         </table>
       </div>
-    )
+    );
   }
 }
 

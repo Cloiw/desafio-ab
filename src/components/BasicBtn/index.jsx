@@ -1,8 +1,8 @@
 import React from 'react';
 import './BasicBtn.css';
 
-const BasicBtn = (props) => (
-  <button className={`${props.class} btn-basic`} onClick={props.click}>{props.name}</button>
+const BasicBtn = ({ addClass, click, name }) => (
+  <button type="button" className={`${addClass} btn-basic`} onClick={click}>{name}</button>
 );
 
-export default BasicBtn
+export default BasicBtn;

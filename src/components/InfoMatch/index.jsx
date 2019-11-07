@@ -5,26 +5,59 @@ import {
 } from 'react-bootstrap';
 import './InfoMatch.css';
 
-const InfoMatch = (props) => {
-  return (
-    <div>
-      <h4>{props.title}</h4>
-        <Row bsPrefix={props.map_url ? "row row-padding-y" : "row-padding-top"}>
-          <Col md={props.map_url ? 6 : 12}>
-            {props.date && <p>Fecha y hora : {`${props.date.split('-').join('/')}\xa0\xa0\xa0${props.time} hrs`}</p>}
-            {props.type && <p>Tipo de partido : {props.type}</p>}
-            {props.venue_name && <p>Nombre del recinto : {props.venue_name}</p>}
-            {props.venue_phone && <p>Telefono : {props.venue_phone}</p>}
-            {props.venue_street && <p>Calle : {props.venue_street} {props.venue_number}</p>}
-            {props.venue_commune && <p>Comuna : {props.venue_commune}</p>}
-          </Col>
-          {props.map_url &&
-          <Col md={6} bsPrefix="col-map col">
-            <iframe title="map" className="map-iframe" src={props.map_url} frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" />
-          </Col>
-          }
-        </Row>
-    </div>
-  )
-}
-export default InfoMatch
+const InfoMatch = ({
+  title, mapUrl, date, time, type, venueName, venuePhone, venueStreet, venueNumber, venueCommune,
+}) => (
+  <div>
+    <h4>{title}</h4>
+    <Row bsPrefix={mapUrl ? 'row row-padding-y' : 'row-padding-top'}>
+      <Col md={mapUrl ? 6 : 12}>
+        {date && (
+          <p>
+            Fecha y hora :&nbsp;
+            {`${date.split('-').join('/')}\xa0\xa0\xa0${time} hrs`}
+          </p>
+        )}
+        {type && (
+          <p>
+            Tipo de partido :&nbsp;
+            {type}
+          </p>
+        )}
+        {venueName && (
+          <p>
+            Nombre del recinto :&nbsp;
+            {venueName}
+          </p>
+        )}
+        {venuePhone && (
+          <p>
+            Telefono :&nbsp;
+            {venuePhone}
+          </p>
+        )}
+        {venueStreet && (
+          <p>
+            Calle :&nbsp;
+            {venueStreet}
+            {' '}
+            {venueNumber}
+          </p>
+        )}
+        {venueCommune && (
+          <p>
+            Comuna :&nbsp;
+            {venueCommune}
+          </p>
+        )}
+      </Col>
+      {mapUrl && (
+        <Col md={6} bsPrefix="col-map col">
+          <iframe title="map" className="map-iframe" src={mapUrl} frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" />
+        </Col>
+      )}
+    </Row>
+  </div>
+);
+
+export default InfoMatch;

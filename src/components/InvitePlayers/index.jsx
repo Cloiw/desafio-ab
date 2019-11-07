@@ -4,35 +4,37 @@ import { db } from '../../data/firebase';
 import './InvitePlayers.css';
 
 class InvitePlayers extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = { invite_email: ""};
-  }
-  
-  invitePlayer(id, players, email) {
-    const newPlayer = [...players]
-    newPlayer.push({email: email, status: 0})
-    db.collection("matches").doc(id).update({
-      players : newPlayer
-    })
+    this.state = { inviteEmail: '' };
   }
 
-  handleChange = (event) => { 
+  handleChange = (event) => {
     this.setState({ [event.target.id]: event.target.value });
   }
-  
-  render(){
-  return(
-  <div className="container-invite-players">
-    <input id="invite_email" onChange={this.handleChange} placeholder="correo@gmail.com" />
-    <BasicBtn 
-      class="invite" 
-      click={() => this.invitePlayer(this.props.id, this.props.players, this.state.invite_email)} 
-      name="Invitar Jugador"
-    />
-  </div>
-  )
+
+  invitePlayer(id, players, email) {
+    const newPlayer = [...players];
+    newPlayer.push({ email, status: 0 });
+    db.collection('matches').doc(id).update({
+      players: newPlayer,
+    });
+  }
+
+  render() {
+    const { id, players } = this.props;
+    const { inviteEmail } = this.state;
+    return (
+      <div className="container-invite-players">
+        <input id="inviteEmail" onChange={this.handleChange} placeholder="correo@gmail.com" />
+        <BasicBtn
+          addClass="invite"
+          click={() => this.invitePlayer(id, players, inviteEmail)}
+          name="Invitar Jugador"
+        />
+      </div>
+    );
   }
 }
 
-export default InvitePlayers
+export default InvitePlayers;

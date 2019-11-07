@@ -5,7 +5,6 @@ import MatchView from './views/MatchView';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 const App = () => (
   <Router>
     <Switch>
@@ -22,4 +21,5 @@ const App = () => (
     </Switch>
   </Router>
 );
+
 export default App;
