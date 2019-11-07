@@ -35,14 +35,18 @@ class CreateMatch extends React.Component {
     }
   }
 
-  handleChange = (event) => { // obtener datos de los campos
+  handleChange = (event) => {
     this.setState({ [event.target.id]: event.target.value });
   }
 
   createSelectOptions(dataOption) {
     const options = [];
     for (let i = 0; i < dataOption.length; i++) {
-      options.push(<option key={dataOption[i].ID} value={JSON.stringify(dataOption[i])}>{dataOption[i].nombre}</option>);
+      options.push(
+        <option key={dataOption[i].ID} value={JSON.stringify(dataOption[i])}>
+          {dataOption[i].nombre}
+        </option>,
+      );
     }
     return options;
   }
@@ -52,7 +56,7 @@ class CreateMatch extends React.Component {
       matchName, matchType, matchDate, matchTime, sportVenue,
     } = this.state;
     const { onHide } = this.props;
-    if (matchName === '' || matchType === '' || matchDate === '' || matchTime === '') {
+    if (matchName === '' || matchType === '' || matchDate === '' || matchTime === '' || sportVenue === '') {
       this.setState({
         errorMsg: true,
       });

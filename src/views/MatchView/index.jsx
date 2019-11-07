@@ -7,35 +7,37 @@ import {
 import { Link } from 'react-router-dom';
 import { db } from '../../data/firebase';
 import BasicBtn from '../../components/BasicBtn';
-import './MatchView.css';
 import PlayersTable from '../../components/PlayersTable/indexj';
 import InvitePlayers from '../../components/InvitePlayers';
 import InfoMatch from '../../components/InfoMatch';
+import './MatchView.css';
 
 
 class MatchView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      match_data: {
+      matchData: {
         match_name: '', match_players: 0, match_date: '', match_time: '', sport_venue: { nombre: '' }, players: [],
       },
     };
   }
 
   componentDidMount() {
-    const { matchId } = this.props.match.params;
+    const { match: { params: { matchId } } } = this.props;
     db.collection('matches').doc(matchId).onSnapshot((querySnapshot) => {
       this.setState({
-        match_data: querySnapshot.data(),
+        matchData: querySnapshot.data(),
       });
     });
   }
 
   render() {
     const {
-      match_name, match_type, match_id, match_date, match_time, sport_venue, match_players, players,
-    } = this.state.match_data;
+      matchData: {
+        match_name, match_type, match_id, match_date, match_time, sport_venue, match_players, players,
+      },
+    } = this.state;
     const addressString = `${sport_venue.calle} ${sport_venue.numero} ${sport_venue.comuna}`;
     const address = encodeURIComponent(addressString);
     const map = `https://maps.google.com/maps?q=${address}&t=&z=13&ie=UTF8&iwloc=&output=embed`;

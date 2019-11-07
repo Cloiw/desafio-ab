@@ -47,7 +47,7 @@ class Table extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <table className="matches-table">
           <thead>
             <tr>
@@ -61,7 +61,7 @@ class Table extends React.Component {
             {this.createTableData()}
           </tbody>
         </table>
-      </div>
+      </>
     );
   }
 }

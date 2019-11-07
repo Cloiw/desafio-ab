@@ -27,7 +27,12 @@ module.exports = {
         "jsx-a11y/label-has-associated-control": [ "error", {
             "required": {
               "some": [ "nesting", "id"  ]
-            }
-          }],
+            },
+        }],
+        "camelcase": [2, {"allow": 
+            ["match_name", "match_type", "match_id", "match_date", "match_time", "sport_venue", "match_players"]
+        }],
+        "max-len": ["error", { "code": 121 }],
+        "class-methods-use-this" : "off"
     }
 };

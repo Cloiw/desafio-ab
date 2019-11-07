@@ -38,7 +38,7 @@ class PlayersTable extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <table className="matches-table">
           <thead>
             <tr>
@@ -52,7 +52,7 @@ class PlayersTable extends React.Component {
             {this.createBlankCells()}
           </tbody>
         </table>
-      </div>
+      </>
     );
   }
 }
